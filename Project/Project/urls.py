@@ -1,3 +1,6 @@
+
+from django.conf import settings # new
+from django.conf.urls.static import static # ne
 """
 URL configuration for Project project.
 
@@ -26,4 +29,5 @@ urlpatterns = [
 
     path('accounts/', include('users.urls')),
     path('', include('pages.urls')),
-]
+    path ('books/', include('books.urls')),
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
